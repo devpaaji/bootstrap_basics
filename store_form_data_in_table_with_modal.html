@@ -1,0 +1,140 @@
+</doctype html>
+<html lang="en">
+<head>
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+<div class="container">
+
+	<!-- set the role to form as it is useful for web accessibility standards-->
+	<form role="form" id="user-data" method="post"  enctype="multipart/form-data">
+
+		<!--Wrap labels and form controls in <div class="form-group"> (needed for optimum spacing)-->
+
+		<div class="form-group">
+		<label for="name">Name</label>
+		<input type="text" class="form-control" id="full-name" required>
+		</div>
+
+		<div class="form-group">
+		<label for="email_id">Email Address</label>
+		<input type="email" class="form-control" id="email_id" required>
+		</div>
+
+		<div class="form-group">
+		<label for="pawd">Password</label>
+		<input type="password" class="form-control" id="pawd" required>
+		</div>
+
+		 <button type="button" class="btn btn-default" id="submit-form" data-toggle="modal" data-target="#form_modal">Submit</button>
+
+	</form>
+
+</div>
+
+
+<div class="container">
+
+<!-- now add the event listener to the modal-->
+
+	
+<!-- first create a modal-->
+
+	<div id="form_modal" class="modal fade" data-toggle="modal" data-target="form_modal" role="dialog">
+
+		<div class="modal-dialog">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+				 Confirm Submit
+				</div>
+
+				<div class="modal-body">
+					 Are you sure you want to submit the following details?
+
+					   <table class="table table-bordered">
+						   	<tr>
+		                        <th>Name</th>
+		                        <td id="name"></td>
+	                   		</tr>
+		                    <tr>
+		                        <th>Email Address</th>
+		                        <td id="email"></td>
+		                    </tr>
+
+		                      <tr>
+		                        <th>Password</th>
+		                        <td id="pwd"></td>
+		                    </tr>
+
+					   </table>
+
+					 <div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+							<button type="button" id="submit-nodal-data" class="btn btn-success success" data-dismiss="modal">Submit</button>
+					</div>
+
+				</div>
+
+		</div>
+
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+$(document).ready(function(){
+
+		// target the form submit button. get the id
+		$('#submit-form').click(function()
+
+		{
+			// target the table id in the modal. Get each element id - name, emaila and password
+
+			$('#name').text($('#full-name').val());
+			$('#email').text($('#email_id').val());
+			$('#pwd').text($('#pawd').val());
+
+		});
+
+		$('#submit-nodal-data').click(function()
+		{
+
+			alert('Submitting Data will take time....');
+			$('#user-data').submit();
+
+		});
+
+});
+
+
+//https://www.bootstrapzero.com/
+
+//http://www.pxcreate.com/bootstrap/classic/
+
+// http://essentia.bootstrapmaster.com/
+
+
+
+
+</script>
+
+</body>
+
+</html>
